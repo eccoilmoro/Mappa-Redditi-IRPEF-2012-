@@ -24,8 +24,9 @@
 //map.setView(new L.LatLng(39.5,-5.0), 6);
 
 var map = L.mapbox.map('map');
-var tilesUrl = 'http://eccoilmoro.github.io/Mappa-Redditi-IRPEF-2012-/tiles-mappa-redditi-2012/{z}/{x}/{y}.png',
-tilesLayer = new L.mapbox.TileLayer(tilesUrl);
+var tilesJson = { "tilejson": "2.0.0",
+  "tiles": [ "http://eccoilmoro.github.io/Mappa-Redditi-IRPEF-2012-/tiles-mappa-redditi-2012/{z}/{x}/{y}.png" ] }
+tilesLayer = new L.mapbox.TileLayer(tilesJson);
 map.addLayer(tilesLayer);
 map.setView(new L.LatLng(39.5,-5.0), 6);
 
