@@ -27,6 +27,7 @@ var map = L.mapbox.map('map');
 var tilesUrl = 'http://eccoilmoro.github.io/Mappa-Redditi-IRPEF-2012-/tiles-mappa-redditi-2012/{z}/{x}/{y}.png',
 tilesLayer = new L.mapbox.TileLayer(tilesUrl);
 map.addLayer(tilesLayer);
+map.setView(new L.LatLng(39.5,-5.0), 6);
 
 	</script>
 </body>
