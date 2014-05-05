@@ -13,14 +13,30 @@
 	<div id="map" style="width: 1000px; height: 1000px"></div>
 
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+	<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
 	<script>
 
-var tilesUrl = 'http://eccoilmoro.github.io/Mappa-Redditi-IRPEF-2012-/tiles-mappa-redditi-2012/{z}/{x}/{y}.png',
-tilesLayer = new L.TileLayer(tilesUrl);
- 
+//var tilesUrl = 'http://eccoilmoro.github.io/Mappa-Redditi-IRPEF-2012-/tiles-mappa-redditi-2012/{z}/{x}/{y}.png',
+//tilesLayer = new L.TileLayer(tilesUrl);
+//map = new L.Map('map');
+//map.addLayer(tilesLayer);
+//map.setView(new L.LatLng(39.5,-5.0), 6);
+
+
+var tilejson = {
+    tilejson: '1.0.0',
+    tiles: ['http://eccoilmoro.github.io/Mappa-Redditi-IRPEF-2012-/tiles-mappa-redditi-2012/{z}/{x}/{y}.png'],
+    grids: ['http://eccoilmoro.github.io/Mappa-Redditi-IRPEF-2012-/tiles-mappa-redditi-2012/{z}/{x}/{y}.grid.json'],
+    formatter: function (options, data) { return "CODE: " + data.DICOFRE }
+};
+
 map = new L.Map('map');
-map.addLayer(tilesLayer);
+map.addLayer(new wax.leaf.connector(tilejson));
 map.setView(new L.LatLng(39.5,-5.0), 6);
+
+wax.leaf.interaction(map, tilejson);
+
+
 
 	</script>
 </body>
